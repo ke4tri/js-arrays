@@ -4,16 +4,16 @@ console.log('in challenge');
 let elizabethSanger = {
     congressionalDistrict: 5,
     statements: [
-      {statement: "pie for everyone", category: "Jobs"},
-      {statement: "no taxes on pie", category: "Taxes"},
-      {statement: "No working on friday", category: "Jobs"}
+      {statement: "Pie for everyone! ", category: "Jobs: "},
+      {statement: "No taxes on pie! ", category: "Taxes: "},
+      {statement: "No working on friday! ", category: "Jobs: "}
     ],
     donationFormUrl: 'www.google.com',
     events: [
-      {date: '08/27/2018', title:"Zoe's birthday", description:"eat all the pie at the party"},
-      {date: '08/28/2018', title:"Arrays", description:"all the looping"},
-      {date: '09/4/2018', title:"Some important event", description:"SUPER important"},
-      {date: '09/4/2018', title:"Running", description:"from the police"},
+      {date: '08/27/2018', title:"Zoe's birthday", description:"Eat all the pie at the party."},
+      {date: '08/28/2018', title:"Arrays", description:"All the looping."},
+      {date: '09/4/2018', title:"Some important event", description:"SUPER important."},
+      {date: '09/4/2018', title:"Running", description:"From the police."},
       {date: '03/14/2019', title:"Pi Day", description:"Eat it all???"}
     ],
     volunteers: [
@@ -42,7 +42,7 @@ let elizabethSanger = {
         activities: ' everything '
       }
     ],
-    biography: "I'm so cool!  please elect me",
+    biography: "I'm so cool!  please elect me.  I grew up in the West Virginia Hills and just cannot wait to go back.  There will be a moment when I think I just cannot do this but i will overcome all that the negitive world has to offer. ",
     images: [
       {
         imageUrl: "http://catsatthestudios.com/wp-content/uploads/2017/12/12920541_1345368955489850_5587934409579916708_n-2-960x410.jpg",
@@ -65,42 +65,50 @@ let elizabethSanger = {
         type: "constituents"
       },
     ],
-    missionStatement: "Do good stuff",
+    missionStatement: "Do good stuff and stuff things good! ",
     voterRegistrationUrl: 'www.google.com'
   };
 
-  const printToDom = (stringToPrint, divId) => {
+ //////////////////////////////////////////
+ ////                DOM              ////
+ /////////////////////////////////////////
+
+const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = stringToPrint; // take out the + so you only have one line
 };
 
-const statementsStringBuilder = () => {
-    let newString = '';
-    for(let i=0; i<elizabethSanger.statements.length; i++) {
-       // newString += elizabethSanger.statements[i].statement;// All of the newStrings below could have been one line
-        newString += `<div class="statement">`// They were broken into multi lines for ease of reading and 
-        newString += `<h3>${elizabethSanger.statements[i].statement}</h3}`// To just make it look better
-        newString += `<h6>${elizabethSanger.statements[i].category}</h6}` // leaving the close sign and placing the bracket keeps everything on the one line
-    }
-    printToDom(newString,'statements');
-};
+const printToDom2 = (stringToPrint, divClass) => {
+    const selectedDiv = document.getElementsByClassName(divClass);
+    selectedDiv.innerHTML += stringToPrint;
+}
 
 const donationFormStringBuilder = () => {
-    const newString = `<a href="https://${elizabethSanger.donationFormUrl}" target="_blank">Donations</a>`;
+    const newString = `<h1><a href="https://${elizabethSanger.donationFormUrl}" target="_blank">Click Here To Donate</a></h1>`;
     printToDom(newString,'donationForm');
 };
 
-const voterRegistrationStringBuilder = () => {
-const newString = `<a href="https://${elizabethSanger.voterRegistrationUrl}" target="_blank">Register to Vote Here</a>`;
-printToDom(newString,'voterRegistration');
+const statementsStringBuilder = () => {
+    let newString = ''; 
+    for(let i=0; i<elizabethSanger.statements.length; i++) {
+       // newString += elizabethSanger.statements[i].statement;// All of the newStrings below could have been one line
+     
+       newString += `<div class="statement">`// They were broken into multi lines for ease of reading and 
+        newString += `<h3>${elizabethSanger.statements[i].category}</h3}`// To just make it look better
+        newString += `<h6>${elizabethSanger.statements[i].statement}</h6}` // leaving the close sign and placing the bracket keeps everything on the one line
+    }
+    // printToDom(elizabethSanger.volunteers[])
+    printToDom(newString,'statements');
 };
+
+
 
 const eventsStringBuilder = () => {
     let newString = '';
     for(i=0;i<elizabethSanger.events.length;i++){
         newString += `<div class="event">`
-        newString += `<h3>${elizabethSanger.events[i].date}</h3}`
-        newString += `<h3>${elizabethSanger.events[i].title}</h3}`
+        newString += `<h3>${elizabethSanger.events[i].date}: </h3}`
+        newString += `<h3>${elizabethSanger.events[i].title} - </h3}`
         newString += `<h3>${elizabethSanger.events[i].description}</h3}`
         printToDom(newString, 'events');
     };
@@ -119,7 +127,7 @@ const volunteersStringBuilder = () => {
 };
 
 const bioFormStringBuilder = () => {
-    const newString = `<p>${elizabethSanger.biography}</p>`;
+    const newString = `<h2 class="hBio">Biography</h2><p class="pBio">${elizabethSanger.biography}</p>`;
     printToDom(newString,'biography');
 };
 
@@ -133,15 +141,20 @@ const imagesStringBuilder = () => {
 };
 
 const missionStatementSBuilder = () => {
-    newUrl = `<p>${elizabethSanger.missionStatement}</p>`;
+    newUrl = `<h2 class="hMiss">Mission Statement</h2><p class="pMiss">${elizabethSanger.missionStatement}</p>`;
     printToDom(newUrl,'missionStatement');
 };
 
-const updateVoterRegistration = (newUrl) => {
-    elizabethSanger.voterRegistrationUrl = newUrl;
-    voterRegistrationStringBuilder();
-};
+const voterRegistrationStringBuilder = () => {
+    const newString = `<a href="https://${elizabethSanger.voterRegistrationUrl}" target="_blank">REGISTER TO VOTE HERE </a>`;
+    printToDom(newString,'voterRegistration');
+    };
 
+// const updateVoterRegistration = (newUrl) => {
+//     elizabethSanger.voterRegistrationUrl = newUrl;
+//     voterRegistrationStringBuilder();
+// };
+ 
 
 donationFormStringBuilder();
 voterRegistrationStringBuilder();
@@ -151,3 +164,9 @@ volunteersStringBuilder();
 bioFormStringBuilder();
 imagesStringBuilder();
 missionStatementSBuilder();
+
+
+let change_function = () => {
+
+     
+};
