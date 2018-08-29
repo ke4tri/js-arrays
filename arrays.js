@@ -25,3 +25,25 @@ const pal = (word) => {
 }   
 
 pal('mom');
+
+
+let animals = ['bear', 'cat', 'lambs', 'snakes', 'dog'];
+
+const lastItem = animals.pop(); // big spiders
+const firstItem = animals.shift(); // spiders
+animals.push('bat');
+animals.unshift('baby hippo');
+console.log('animals', animals);
+
+
+////////////////////////////////////////
+
+// 1. What is your starting value - 0
+// 2. What is your stopping value - something.length
+// 3. How are you incramenting - +1
+
+for (i=0;i<animals.length;i++) {
+    console.log('Animal : ',animals[i]);
+}
+
+
