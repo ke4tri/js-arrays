@@ -1,12 +1,83 @@
 body {
     background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
 }
 
+#donationForm {
+   
+}
+
+#statement {
+
+}
 .statement{
     background-color: antiquewhite;
     border: 2px solid black;
-    width: 150px;
+    width: 300px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+#events {
+    background-color: antiquewhite;
+    border: 2px solid black;
+    width: 300px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#volunteers {
+    background-color: antiquewhite;
+    border: 2px solid black;
+    width: 300px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* #images {
+    border: 2px solid black;
+    width: 300px;
+    height: auto;
+
+} */
+
+img {
+    border: 2px solid black;
+    width: 300px; 
+}
+
+#biography {
+    border: 2px black solid;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.hBio {
+    margin-bottom: 2px;
+}
+
+.pBio {
+    width: 300px;
+    margin-top: 2px;
+}
+
+.hMiss {
+    margin-bottom: 2px;
+}
+.pMiss {
+    margin-top: 2px;
+}
+
+#images {
+
+}
+#missionStatement {
+    text-align: center;
+
+}
+#voterRegistration {
     
 }
