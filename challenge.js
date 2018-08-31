@@ -1,5 +1,18 @@
-console.log('in challenge');
+////////////////////////////////////////////////////
+//practice/colsole area
 
+// console.log('in challenge');
+
+// var person = {
+//     firstName:"John",
+//     lastName:"Doe",
+//     age:50,
+//     eyeColor:"blue"
+// };
+
+// person["time"]="four";
+// elizabethSanger["congressionalDistrict"]="6";
+///////////////////////////////////////////////////
 
 let elizabethSanger = {
     congressionalDistrict: 5,
@@ -67,11 +80,20 @@ let elizabethSanger = {
     ],
     missionStatement: "Do good stuff and stuff things good! ",
     voterRegistrationUrl: 'www.google.com'
-  };
+};
 
- //////////////////////////////////////////
- ////                DOM              ////
+  //////////////////////////////////////////
+ ////                DOM               ////
  /////////////////////////////////////////
+
+ let change_district = (district) => {
+   let change = elizabethSanger["congressionalDistrict"]=district;
+
+};
+
+change_district(6);
+
+
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -81,7 +103,12 @@ const printToDom = (stringToPrint, divId) => {
 const printToDom2 = (stringToPrint, divClass) => {
     const selectedDiv = document.getElementsByClassName(divClass);
     selectedDiv.innerHTML += stringToPrint;
-}
+};
+
+const districtStringBuilder = () => {
+    const newString =`<h1>District : ${elizabethSanger.congressionalDistrict}</h1>`
+    printToDom(newString, 'congressionalDistrict');
+};
 
 const donationFormStringBuilder = () => {
     const newString = `<h1><a href="https://${elizabethSanger.donationFormUrl}" target="_blank">Click Here To Donate</a></h1>`;
@@ -92,7 +119,6 @@ const statementsStringBuilder = () => {
     let newString = ''; 
     for(let i=0; i<elizabethSanger.statements.length; i++) {
        // newString += elizabethSanger.statements[i].statement;// All of the newStrings below could have been one line
-     
        newString += `<div class="statement">`// They were broken into multi lines for ease of reading and 
         newString += `<h3>${elizabethSanger.statements[i].category}</h3}`// To just make it look better
         newString += `<h6>${elizabethSanger.statements[i].statement}</h6}` // leaving the close sign and placing the bracket keeps everything on the one line
@@ -155,7 +181,7 @@ const voterRegistrationStringBuilder = () => {
 //     voterRegistrationStringBuilder();
 // };
  
-
+districtStringBuilder();
 donationFormStringBuilder();
 voterRegistrationStringBuilder();
 statementsStringBuilder();
@@ -166,7 +192,34 @@ imagesStringBuilder();
 missionStatementSBuilder();
 
 
-let change_function = () => {
-
-     
+let district_change = () => {
+   
 };
+
+let donation_change = () => {
+   
+};
+
+let statements_change = () => {
+   
+};
+
+let events_change = () => {
+   
+};
+
+let volunteers_change = () => {
+   
+};
+
+let biography_change = () => {
+   
+};
+
+let missionState_change = () => {
+   
+};
+let voteReg_change = () => {
+   
+};
+
