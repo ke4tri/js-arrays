@@ -14,6 +14,7 @@
 // elizabethSanger["congressionalDistrict"]="6";
 ///////////////////////////////////////////////////
 
+
 let elizabethSanger = {
     congressionalDistrict: 5,
     statements: [
@@ -83,17 +84,70 @@ let elizabethSanger = {
 };
 
   //////////////////////////////////////////
- ////                DOM               ////
+ ////         Change Functions         ////
  /////////////////////////////////////////
 
- let change_district = (district) => {
-   let change = elizabethSanger["congressionalDistrict"]=district;
 
+let district_change = (district) => {
+    let change = elizabethSanger["congressionalDistrict"]=district;
 };
 
-change_district(6);
+// function statements_change(order, category ,comment){
+//     let change = elizabethSanger.statements[order].category= comment;
+    // const myVar = elizabethSanger.statements[order];
+    // let change = myVar.test = comment;
+
+// };
+
+let statement_add = (order, state1, cat1) => {
+    let element = {statement:  state1, category: cat1}
+    elizabethSanger.statements[order] = element ;
+};
+
+let donation_add = (url) => {
+    let change = elizabethSanger["donationFormUrl"]= url;
+ };
+
+let events_add = (order, date1, title1, description1) => {
+   let element = {date: date1 , title: title1, description: description1 };
+   elizabethSanger.events[order] = element;
+};
+
+let volunteers_add = (order, name1, add1, email1, phone1, availability1, activities1) => {
+    let element = {name: name1 , address: add1, email: email1, phone: phone1,availability: availability1, activities: activities1 };
+    elizabethSanger.volunteers[order] = element;
+};
+
+let biography_add = () => {
+   // Not adding 
+};
+
+let images_add = (order, url, dis1, type1) => {
+    let element = {imageUrl: url , description: dis1, type: type1 };
+    elizabethSanger.images[order] = element;
+};
+
+let missionState_add = () => {
+    let element = {imageUrl: url , description: dis1, type: type1 };
+    elizabethSanger.images[order] = element;
+};
+
+let voteReg_add = () => {
+   //Not adding
+};
+
+district_change(89);
+statement_add( 3,'This is the new state!' ,"Jobs: " );
+events_add(3, '08/22/2018', "Waynes Day", "A place to take time");
+volunteers_add(3, ' Wayne ', ' 555 Jesus lane ', ' god@hevyen.com ', ' 2232839222 ', ' never ', ' water walking ');
+images_add(4, "https://placeimg.com/304/184/animals", "Tree dog", "constituents");
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////
+ ////              DOM                 ////
+ /////////////////////////////////////////
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -162,6 +216,7 @@ const imagesStringBuilder = () => {
     for(i=0;i<elizabethSanger.images.length;i++){
         newString += `<div class="images">`
         newString += `<img src="${elizabethSanger.images[i].imageUrl}">`
+        newString += `` //don't think I need this
         printToDom(newString, 'images');
     };
 };
@@ -190,36 +245,4 @@ volunteersStringBuilder();
 bioFormStringBuilder();
 imagesStringBuilder();
 missionStatementSBuilder();
-
-
-let district_change = () => {
-   
-};
-
-let donation_change = () => {
-   
-};
-
-let statements_change = () => {
-   
-};
-
-let events_change = () => {
-   
-};
-
-let volunteers_change = () => {
-   
-};
-
-let biography_change = () => {
-   
-};
-
-let missionState_change = () => {
-   
-};
-let voteReg_change = () => {
-   
-};
 
