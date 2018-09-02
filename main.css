@@ -8,6 +8,20 @@ body {
 #donationForm {
    
 }
+p {
+    
+    text-align: center;
+    
+}
+.pDescription {
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.pType {
+    margin-top: 2px;
+    margin-bottom: 50px;
+}
 
 #statement {
 
@@ -55,6 +69,8 @@ img {
     margin-bottom: 5px;
 }
 
+
+
 .hBio {
     margin-bottom: 2px;
 }
@@ -72,8 +88,16 @@ img {
 }
 
 #images {
-
+    display: flex;
 }
+
+.images {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 #missionStatement {
     text-align: center;
 
