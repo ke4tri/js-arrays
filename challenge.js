@@ -61,22 +61,22 @@ let elizabethSanger = {
       {
         imageUrl: "http://catsatthestudios.com/wp-content/uploads/2017/12/12920541_1345368955489850_5587934409579916708_n-2-960x410.jpg",
         description: "The Crew",
-        type: "constituents"
+        type: "Constituents"
       },
       {
         imageUrl: "https://imgix.bustle.com/uploads/image/2018/4/18/5f312113-eaa8-4e71-9360-871e51084f4f-fotolia_125402501_subscription_monthly_m.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70",
         description: "Elizabeth at the fair",
-        type: "headshot"
+        type: "Headshot"
       },
       {
         imageUrl: "http://los40cl00.epimg.net/los40/imagenes/2018/08/13/actualidad/1534185434_207658_1534185597_noticia_normal.jpg",
         description: "Elizabeth and her homies",
-        type: "constituents"
+        type: "Constituents"
       },
       {
         imageUrl: "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3658031.jpg",
         description: "All the people of district 5",
-        type: "constituents"
+        type: "Constituents"
       },
     ],
     missionStatement: "Do good stuff and stuff things good! ",
@@ -99,37 +99,62 @@ let district_change = (district) => {
 
 // };
 
-let statement_add = (order, state1, cat1) => {
+let statement_add = ( state1, cat1) => {
     let element = {statement:  state1, category: cat1}
-    elizabethSanger.statements[order] = element ;
+         let new1 = elizabethSanger.statements ;
+         new1.push(element)
 };
+// or
+
+// let statement_add = (order, state1, cat1) => {
+//     let element = {statement:  state1, category: cat1}
+//     elizabethSanger.statements[order] = element ;
+// };
 
 let donation_add = (url) => {
     let change = elizabethSanger["donationFormUrl"]= url;
  };
 
-let events_add = (order, date1, title1, description1) => {
+let events_add = (date1, title1, description1) => {
    let element = {date: date1 , title: title1, description: description1 };
-   elizabethSanger.events[order] = element;
+//    elizabethSanger.events[order] = element;
+     let new1 = elizabethSanger.events ;
+     new1.push(element)
 };
+// or
+// let events_add = (order, date1, title1, description1) => {
+//     let element = {date: date1 , title: title1, description: description1 };
+//     elizabethSanger.events[order] = element;
+//  };
 
-let volunteers_add = (order, name1, add1, email1, phone1, availability1, activities1) => {
+
+
+let volunteers_add = (name1, add1, email1, phone1, availability1, activities1) => {
     let element = {name: name1 , address: add1, email: email1, phone: phone1,availability: availability1, activities: activities1 };
-    elizabethSanger.volunteers[order] = element;
+    let new1 = elizabethSanger.volunteers ;
+    new1.push(element)
+    // elizabethSanger.volunteers[order] = element;
+
 };
 
 let biography_add = () => {
-   // Not adding 
+    let new1 = elizabethSanger.biography;
+    new1.push(element)
 };
 
-let images_add = (order, url, dis1, type1) => {
+let images_add = (url, dis1, type1) => {
     let element = {imageUrl: url , description: dis1, type: type1 };
-    elizabethSanger.images[order] = element;
+    let new1 = elizabethSanger.images ;
+    new1.push(element)
+    // elizabethSanger.images[order] = element;
 };
+
 
 let missionState_add = () => {
     let element = {imageUrl: url , description: dis1, type: type1 };
-    elizabethSanger.images[order] = element;
+    let new1 = elizabethSanger.missionStatement ;
+    new1.push(element)
+    // elizabethSanger.images[order] = element;
 };
 
 let voteReg_add = () => {
@@ -137,10 +162,10 @@ let voteReg_add = () => {
 };
 
 district_change(89);
-statement_add( 3,'This is the new state!' ,"Jobs: " );
-events_add(3, '08/22/2018', "Waynes Day", "A place to take time");
-volunteers_add(3, ' Wayne ', ' 555 Jesus lane ', ' god@hevyen.com ', ' 2232839222 ', ' never ', ' water walking ');
-images_add(4, "https://placeimg.com/304/184/animals", "Tree dog", "constituents");
+statement_add( 'This is the new state!' ,'Jobs: ' );
+events_add('08/22/2018', "Waynes Day", "A place to take time");
+volunteers_add(' Wayne ', ' 555 Jesus lane ', ' god@hevyen.com ', ' 2232839222 ', ' never ', ' water walking ');
+images_add("https://placeimg.com/304/184/animals", "Tree dog", "constituents");
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -216,6 +241,8 @@ const imagesStringBuilder = () => {
     for(i=0;i<elizabethSanger.images.length;i++){
         newString += `<div class="images">`
         newString += `<img src="${elizabethSanger.images[i].imageUrl}">`
+        newString += `<p class="pDescription">"${elizabethSanger.images[i].description}"</p>`
+        newString += `<p class="pType">${elizabethSanger.images[i].type}</p>`
         newString += `` //don't think I need this
         printToDom(newString, 'images');
     };
